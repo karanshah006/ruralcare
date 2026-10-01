@@ -1,0 +1,1352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>RuralCare</title>
+
+ <style>
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+    }
+
+    body {
+        background: #eef7f4;
+        color: #1f2937;
+        line-height: 1.6;
+    }
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    header {
+        background: linear-gradient(135deg, #087f5b, #0b9b70);
+        color: white;
+        padding: 30px 40px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+    }
+
+    header h1 {
+        font-size: 34px;
+        margin-bottom: 5px;
+        letter-spacing: 0.5px;
+    }
+
+    header p {
+        font-size: 15px;
+        opacity: 0.95;
+    }
+
+    /* =========================
+       MAIN CONTAINER
+    ========================= */
+
+    .container {
+        max-width: 1150px;
+        margin: 35px auto;
+        padding: 0 20px;
+    }
+
+    /* =========================
+       WELCOME
+    ========================= */
+
+    .welcome {
+        background: white;
+        padding: 30px;
+        border-radius: 16px;
+        margin-bottom: 28px;
+        box-shadow: 0 5px 18px rgba(0, 0, 0, 0.07);
+        border-left: 5px solid #0b8f68;
+    }
+
+    .welcome h2 {
+        color: #087f5b;
+        margin-bottom: 10px;
+        font-size: 26px;
+    }
+
+    .welcome p {
+        color: #555;
+    }
+
+    /* =========================
+       DASHBOARD CARDS
+    ========================= */
+
+    .cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 22px;
+        margin-bottom: 30px;
+    }
+
+    .card {
+        background: white;
+        padding: 28px 20px;
+        border-radius: 16px;
+        text-align: center;
+        box-shadow: 0 5px 18px rgba(0, 0, 0, 0.07);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        border-top: 4px solid #0b8f68;
+    }
+
+    .card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 9px 24px rgba(0, 0, 0, 0.11);
+    }
+
+    .icon {
+        font-size: 42px;
+        margin-bottom: 12px;
+    }
+
+    .card h3 {
+        color: #087f5b;
+        margin-bottom: 8px;
+        font-size: 19px;
+    }
+
+    .card p {
+        color: #666;
+        font-size: 14px;
+    }
+
+    /* =========================
+       SECTIONS
+    ========================= */
+
+    .section {
+        background: white;
+        padding: 30px;
+        border-radius: 16px;
+        margin-bottom: 25px;
+        box-shadow: 0 5px 18px rgba(0, 0, 0, 0.07);
+    }
+
+    .section h2 {
+        color: #087f5b;
+        margin-bottom: 20px;
+        font-size: 23px;
+        border-bottom: 2px solid #e3f2ed;
+        padding-bottom: 10px;
+    }
+
+    .section p {
+        color: #555;
+    }
+
+    /* =========================
+       INPUTS
+    ========================= */
+
+    input,
+    select {
+        width: 100%;
+        padding: 14px;
+        margin-bottom: 13px;
+        border: 1px solid #d2d8d6;
+        border-radius: 8px;
+        font-size: 15px;
+        background: #fbfdfc;
+        outline: none;
+        transition: border 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    input:focus,
+    select:focus {
+        border-color: #0b8f68;
+        box-shadow: 0 0 0 3px rgba(11, 143, 104, 0.12);
+    }
+
+    /* =========================
+       BUTTONS
+    ========================= */
+
+    button {
+        background: #087f5b;
+        color: white;
+        border: none;
+        padding: 13px 23px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 15px;
+        font-weight: bold;
+        transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    button:hover {
+        background: #066b4d;
+        transform: translateY(-1px);
+    }
+
+    button:active {
+        transform: translateY(0);
+    }
+
+    /* =========================
+       DOCTOR & APPOINTMENT
+    ========================= */
+
+    .doctor,
+    .appointment {
+        background: #f8fcfa;
+        border: 1px solid #dceae5;
+        padding: 18px;
+        border-radius: 10px;
+        margin-top: 13px;
+        transition: box-shadow 0.2s ease;
+    }
+
+    .doctor:hover,
+    .appointment:hover {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .doctor strong,
+    .appointment strong {
+        color: #087f5b;
+    }
+
+    /* =========================
+       MESSAGES
+    ========================= */
+
+    .message {
+        margin-top: 15px;
+        font-weight: bold;
+        color: #087f5b;
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 800px) {
+
+        .cards {
+            grid-template-columns: 1fr;
+        }
+
+        header {
+            padding: 25px 20px;
+        }
+
+        header h1 {
+            font-size: 28px;
+        }
+
+        .container {
+            margin: 20px auto;
+            padding: 0 15px;
+        }
+
+        .section,
+        .welcome {
+            padding: 22px;
+        }
+
+    }
+
+</style>
+
+</head>
+
+
+<body>
+
+<!-- Patient Login -->
+<section class="section">
+    <h2>🔐 Patient Login</h2>
+    <p>Login to access your RuralCare services.</p>
+
+    <input type="text" id="loginPhone"
+           placeholder="Phone Number"
+           style="width:100%; padding:10px; margin:5px 0;">
+
+    <input type="password" id="loginPassword"
+           placeholder="Password"
+           style="width:100%; padding:10px; margin:5px 0;">
+
+    <button onclick="loginUser()">Login</button>
+
+    <div id="loginResult"
+         style="margin-top:15px; padding:15px; border-radius:8px;">
+    </div>
+</section>
+
+<!-- HEADER -->
+
+<header>
+
+    <h1>🏥 RuralCare</h1>
+
+    <p>
+        Healthcare made accessible
+    </p>
+
+</header>
+
+
+<div class="container">
+
+
+    <!-- WELCOME -->
+
+    <div class="welcome">
+
+        <h2>
+            Welcome to RuralCare
+        </h2>
+
+        <p>
+            A digital healthcare platform connecting
+            rural patients with healthcare services
+            and doctors.
+        </p>
+
+    </div>
+
+
+    <!-- CARDS -->
+
+    <div class="cards">
+
+        <div class="card">
+
+            <div class="icon">
+                👤
+            </div>
+
+            <h3>
+                Patients
+            </h3>
+
+            <p>
+                Register and manage patient information.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">
+                👨‍⚕️
+            </div>
+
+            <h3>
+                Doctors
+            </h3>
+
+            <p>
+                View available healthcare professionals.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">
+                📅
+            </div>
+
+            <h3>
+                Appointments
+            </h3>
+
+            <p>
+                Book healthcare appointments.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- PATIENT REGISTRATION -->
+
+    <div class="section">
+
+    <h2>
+        👤 Patient Registration
+    </h2>
+
+    <input
+        type="text"
+        id="patientName"
+        placeholder="Patient Name">
+
+    <input
+        type="text"
+        id="patientPhone"
+        placeholder="Phone Number">
+
+    <input
+        type="text"
+        id="patientVillage"
+        placeholder="Village">
+
+    <input
+        type="password"
+        id="patientPassword"
+        placeholder="Password">
+
+    <button onclick="registerPatient()">
+        Register Patient
+    </button>
+
+    <p
+        id="patientMessage"
+        class="message">
+    </p>
+
+</div>
+
+<!-- Health Records -->
+<section class="section">
+    <!-- DOCTORS -->
+
+<section class="section">
+
+    <h2>👨‍⚕️ Available Doctors</h2>
+
+    <p>
+        View available healthcare professionals.
+    </p>
+
+    <button onclick="loadDoctors()">
+        Load Doctors
+    </button>
+
+    <div id="doctors" style="margin-top:15px;"></div>
+
+    <p id="doctorMessage" class="message"></p>
+
+</section>
+    <h2>📋 Health Records</h2>
+    <p>View your medical health records.</p>
+
+    <button onclick="loadHealthRecords()">View Health Records</button>
+
+    <div id="healthRecords"
+         style="margin-top:15px;">
+    </div>
+</section>
+
+<!-- Healthcare Centers -->
+<section class="section">
+    <h2>🏥 Healthcare Centers</h2>
+    <p>Find available healthcare centers in rural areas.</p>
+
+    <button onclick="loadHealthcareCenters()">
+        View Healthcare Centers
+    </button>
+
+    <div id="healthcareCenters" style="margin-top:15px;"></div>
+</section>
+
+    <!-- BOOK APPOINTMENT -->
+
+    <div class="section">
+
+        <h2>
+            📅 Book Appointment
+        </h2>
+
+        <input
+            type="number"
+            id="userId"
+            placeholder="Patient ID">
+
+        <input
+            type="number"
+            id="doctorId"
+            placeholder="Doctor ID">
+
+        <input
+            type="date"
+            id="appointmentDate">
+
+        <input
+            type="time"
+            id="appointmentTime">
+
+        <select id="appointmentStatus">
+
+            <option value="Booked">
+                Booked
+            </option>
+
+            <option value="Pending">
+                Pending
+            </option>
+
+        </select>
+
+        <button onclick="bookAppointment()">
+            Book Appointment
+        </button>
+
+        <p
+            id="appointmentMessage"
+            class="message">
+        </p>
+
+    </div>
+
+    <!-- VIDEO CONSULTATION -->
+
+<section class="section">
+
+    <h2>🎥 Doctor Video Consultation</h2>
+
+    <p>
+        Consult a healthcare professional through a secure video call.
+    </p>
+
+    <br>
+
+    <label>
+        Doctor ID
+    </label>
+
+    <input
+        type="number"
+        id="videoDoctorId"
+        placeholder="Enter Doctor ID">
+
+    <button onclick="startVideoCall()">
+        🎥 Start Video Consultation
+    </button>
+
+    <button
+        onclick="endVideoCall()"
+        style="margin-left:10px;">
+        ❌ End Call
+    </button>
+
+    <div
+        id="videoCallArea"
+        style="
+            display:none;
+            margin-top:20px;
+        ">
+
+        <div
+            style="
+                display:grid;
+                grid-template-columns:1fr 1fr;
+                gap:15px;
+            ">
+
+            <div>
+                <p><strong>Your Camera</strong></p>
+
+                <video
+                    id="localVideo"
+                    autoplay
+                    muted
+                    playsinline
+                    style="
+                        width:100%;
+                        background:#111;
+                        border-radius:10px;
+                    ">
+                </video>
+            </div>
+
+            <div>
+                <p><strong>Doctor</strong></p>
+
+                <video
+                    id="remoteVideo"
+                    autoplay
+                    playsinline
+                    style="
+                        width:100%;
+                        background:#111;
+                        border-radius:10px;
+                    ">
+                </video>
+            </div>
+
+        </div>
+
+    </div>
+
+    <p
+        id="videoMessage"
+        class="message">
+    </p>
+
+</section>
+<!-- DOCTOR VIDEO CONSULTATION PORTAL -->
+
+<section class="section">
+
+    <h2>👨‍⚕️ Doctor Video Consultation Portal</h2>
+
+    <p>
+        Doctors can join an active patient video consultation.
+    </p>
+
+    <br>
+
+    <input
+        type="number"
+        id="doctorPortalId"
+        placeholder="Enter Doctor ID">
+
+    <button onclick="joinDoctorCall()">
+        🎥 Join Patient Call
+    </button>
+
+    <button
+        onclick="endDoctorCall()"
+        style="margin-left:10px;">
+        ❌ End Call
+    </button>
+
+    <div
+        id="doctorVideoArea"
+        style="
+            display:none;
+            margin-top:20px;
+        ">
+
+        <div
+            style="
+                display:grid;
+                grid-template-columns:1fr 1fr;
+                gap:15px;
+            ">
+
+            <div>
+
+                <p>
+                    <strong>Doctor Camera</strong>
+                </p>
+
+                <video
+                    id="doctorLocalVideo"
+                    autoplay
+                    muted
+                    playsinline
+                    style="
+                        width:100%;
+                        background:#111;
+                        border-radius:10px;
+                    ">
+                </video>
+
+            </div>
+
+            <div>
+
+                <p>
+                    <strong>Patient</strong>
+                </p>
+
+                <video
+                    id="doctorRemoteVideo"
+                    autoplay
+                    playsinline
+                    style="
+                        width:100%;
+                        background:#111;
+                        border-radius:10px;
+                    ">
+                </video>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <p
+        id="doctorVideoMessage"
+        class="message">
+    </p>
+
+</section>
+
+    <!-- VIEW APPOINTMENTS -->
+
+    <div class="section">
+
+        <h2>
+            📋 Appointments
+        </h2>
+
+        <button onclick="loadAppointments()">
+            View Appointments
+        </button>
+
+        <div id="appointments"></div>
+
+    </div>
+
+
+</div>
+
+
+<script>
+
+function bookAppointment() {
+    alert("Book Appointment button is working!");
+}
+
+// ============================
+// REGISTER PATIENT
+// ============================
+
+async function registerPatient() {
+
+    const name = document.getElementById("patientName").value;
+    const phone = document.getElementById("patientPhone").value;
+    const village = document.getElementById("patientVillage").value;
+    const password = document.getElementById("patientPassword").value;
+    const message = document.getElementById("patientMessage");
+
+    if (!name || !phone || !village || !password) {
+        message.innerText = "Please fill all fields.";
+        return;
+    }
+
+    try {
+
+        const response = await fetch("/api/users", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                id: Math.floor(Date.now() / 1000),
+                name: name,
+                phone: phone,
+                village: village,
+                password: password
+            })
+        });
+
+        const result = await response.text();
+
+        if (response.ok) {
+
+            message.innerText = "Patient registered successfully!";
+
+            document.getElementById("patientName").value = "";
+            document.getElementById("patientPhone").value = "";
+            document.getElementById("patientVillage").value = "";
+            document.getElementById("patientPassword").value = "";
+
+        } else {
+
+            console.log("Registration error:", result);
+            message.innerText = "Registration failed: " + result;
+        }
+
+    } catch (error) {
+
+        console.error(error);
+        message.innerText = "Unable to connect to RuralCare server.";
+    }
+}
+
+
+// ============================
+// LOAD DOCTORS
+// ============================
+
+async function loadDoctors() {
+
+    const doctorsDiv =
+        document.getElementById("doctors");
+
+    const message =
+        document.getElementById("doctorMessage");
+
+
+    doctorsDiv.innerHTML = "";
+
+    message.innerText =
+        "Loading doctors...";
+
+
+    try {
+
+        const response =
+            await fetch("/api/doctors");
+
+        const doctors =
+            await response.json();
+
+
+        message.innerText = "";
+
+
+        if (doctors.length === 0) {
+
+            doctorsDiv.innerHTML =
+                "<p>No doctors available.</p>";
+
+            return;
+        }
+
+
+        doctors.forEach(function(doctor) {
+
+            doctorsDiv.innerHTML += `
+
+                <div class="doctor">
+
+                    <strong>
+                        Doctor ID: ${doctor.id}
+                    </strong>
+
+                    <br><br>
+
+                    Name:
+                    ${doctor.name}
+
+                    <br>
+
+                    Specialization:
+                    ${doctor.specialization}
+
+                    <br>
+
+                    Hospital:
+                    ${doctor.hospital}
+
+                    <br>
+
+                    Village:
+                    ${doctor.village}
+
+                </div>
+
+            `;
+
+        });
+
+    }
+
+    catch (error) {
+
+        message.innerText =
+            "Unable to connect to RuralCare server.";
+
+    }
+
+}
+
+
+
+// ============================
+// BOOK APPOINTMENT
+// ============================
+
+async function bookAppointment() {
+
+    const userId =
+        document.getElementById("userId").value;
+
+    const doctorId =
+        document.getElementById("doctorId").value;
+
+    const date =
+        document.getElementById("appointmentDate").value;
+
+    const time =
+        document.getElementById("appointmentTime").value;
+
+    const status =
+        document.getElementById("appointmentStatus").value;
+
+    const message =
+        document.getElementById("appointmentMessage");
+
+    if (!userId || !doctorId || !date || !time) {
+
+        message.innerText =
+            "Please fill all appointment fields.";
+
+        return;
+    }
+
+    message.innerText = "Booking appointment...";
+
+    try {
+
+        const response = await fetch("/api/appointments", {
+
+            method: "POST",
+
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify({
+
+                id: Math.floor(Date.now() / 1000),
+
+                userId: Number(userId),
+
+                doctorId: Number(doctorId),
+
+                date: date,
+
+                time: time,
+
+                status: status
+
+            })
+
+        });
+
+        const result = await response.text();
+
+        console.log("Appointment response:", result);
+
+        if (response.ok) {
+
+            message.innerText =
+                "Appointment booked successfully!";
+
+            document.getElementById("userId").value = "";
+            document.getElementById("doctorId").value = "";
+            document.getElementById("appointmentDate").value = "";
+            document.getElementById("appointmentTime").value = "";
+
+        } else {
+
+            message.innerText =
+                "Booking failed: " + result;
+        }
+
+    } catch (error) {
+
+        console.error("Appointment error:", error);
+
+        message.innerText =
+            "Unable to connect to RuralCare server.";
+    }
+}
+
+
+
+// ============================
+// LOAD APPOINTMENTS
+// ============================
+
+async function loadAppointments() {
+
+    const appointmentsDiv =
+        document.getElementById(
+            "appointments"
+        );
+
+
+    appointmentsDiv.innerHTML =
+        "Loading appointments...";
+
+
+    try {
+
+        const response =
+            await fetch(
+                "/api/appointments"
+            );
+
+        const appointments =
+            await response.json();
+
+
+        if (appointments.length === 0) {
+
+            appointmentsDiv.innerHTML =
+                "<p>No appointments found.</p>";
+
+            return;
+        }
+
+
+        appointmentsDiv.innerHTML = "";
+
+
+        appointments.forEach(
+            function(appointment) {
+
+                appointmentsDiv.innerHTML += `
+
+                    <div class="appointment">
+
+                        <strong>
+                            Appointment ID:
+                            ${appointment.id}
+                        </strong>
+
+                        <br><br>
+
+                        Patient ID:
+                        ${appointment.userId}
+
+                        <br>
+
+                        Doctor ID:
+                        ${appointment.doctorId}
+
+                        <br>
+
+                        Date:
+                        ${appointment.date}
+
+                        <br>
+
+                        Time:
+                        ${appointment.time}
+
+                        <br>
+
+                        Status:
+                        ${appointment.status}
+
+                    </div>
+
+                `;
+
+            }
+        );
+
+    }
+
+    catch (error) {
+
+        appointmentsDiv.innerHTML =
+            "Unable to connect to RuralCare server.";
+
+    }
+
+}
+async function askAI() {
+    const message = document.getElementById("aiMessage").value;
+    const responseBox = document.getElementById("aiResponse");
+
+    if (message.trim() === "") {
+        responseBox.innerText = "Please describe your symptoms.";
+        return;
+    }
+
+    responseBox.innerText = "AI is thinking...";
+
+    try {
+        const response = await fetch("/api/ai/ask", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                message: message
+            })
+        });
+
+        const result = await response.text();
+
+        responseBox.innerText = result;
+
+    } catch (error) {
+        responseBox.innerText = "Unable to connect to AI Assistant.";
+    }
+}
+async function loadHealthRecords() {
+    const recordsBox = document.getElementById("healthRecords");
+
+    recordsBox.innerHTML = "Loading health records...";
+
+    try {
+        const response = await fetch("/api/health-records");
+
+        const records = await response.json();
+
+        if (records.length === 0) {
+            recordsBox.innerHTML = "No health records found.";
+            return;
+        }
+
+        recordsBox.innerHTML = "";
+
+        records.forEach(record => {
+            recordsBox.innerHTML += `
+                <div style="padding:15px; margin-top:10px; background:#f1f8e9; border-radius:8px;">
+                    <strong>Diagnosis:</strong> ${record.diagnosis}<br>
+                    <strong>Medicine:</strong> ${record.medicine}<br>
+                    <strong>Date:</strong> ${record.date}<br>
+                    <strong>Notes:</strong> ${record.notes}
+                </div>
+            `;
+        });
+
+    } catch (error) {
+        recordsBox.innerHTML = "Unable to load health records.";
+    }
+}
+
+async function loadHealthcareCenters() {
+    const centersBox = document.getElementById("healthcareCenters");
+
+    centersBox.innerHTML = "Loading healthcare centers...";
+
+    try {
+        const response = await fetch("/api/healthcare-centers");
+        const centers = await response.json();
+
+        if (centers.length === 0) {
+            centersBox.innerHTML = "No healthcare centers found.";
+            return;
+        }
+
+        centersBox.innerHTML = "";
+
+        centers.forEach(center => {
+            centersBox.innerHTML += `
+                <div style="padding:15px; margin-top:10px; background:#e8f5e9; border-radius:8px;">
+                    <strong>🏥 ${center.name}</strong><br>
+                    <strong>Type:</strong> ${center.type}<br>
+                    <strong>Village:</strong> ${center.village}<br>
+                    <strong>Phone:</strong> ${center.phone}
+                </div>
+            `;
+        });
+
+    } catch (error) {
+        centersBox.innerHTML = "Unable to load healthcare centers.";
+    }
+}
+async function loginUser() {
+
+    const phone = document.getElementById("loginPhone").value;
+    const password = document.getElementById("loginPassword").value;
+    const resultBox = document.getElementById("loginResult");
+
+    if (phone.trim() === "" || password.trim() === "") {
+        resultBox.innerText = "Please enter phone number and password.";
+        return;
+    }
+
+    resultBox.innerText = "Logging in...";
+
+    try {
+
+        const response = await fetch("/api/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                phone: phone,
+                password: password
+            })
+        });
+
+        const result = await response.text();
+
+        resultBox.innerText = result;
+
+    } catch (error) {
+
+        resultBox.innerText = "Unable to connect to RuralCare.";
+
+    }
+}
+
+let localStream = null;
+
+async function startVideoCall() {
+
+    const doctorId =
+        document.getElementById("videoDoctorId").value;
+
+    const message =
+        document.getElementById("videoMessage");
+
+    const videoArea =
+        document.getElementById("videoCallArea");
+
+    const localVideo =
+        document.getElementById("localVideo");
+
+    if (!doctorId) {
+
+        message.innerText =
+            "Please enter a Doctor ID.";
+
+        return;
+    }
+
+    try {
+
+        localStream =
+            await navigator.mediaDevices.getUserMedia({
+                video: true,
+                audio: true
+            });
+
+        localVideo.srcObject =
+            localStream;
+
+        videoArea.style.display =
+            "block";
+
+        message.innerText =
+            "Camera and microphone started. Waiting for doctor...";
+
+    }
+
+    catch (error) {
+
+        console.error(error);
+
+        message.innerText =
+            "Camera or microphone permission was denied.";
+
+    }
+}
+
+
+function endVideoCall() {
+
+    if (localStream) {
+
+        localStream
+            .getTracks()
+            .forEach(function(track) {
+                track.stop();
+            });
+
+        localStream = null;
+    }
+
+    document.getElementById(
+        "localVideo"
+    ).srcObject = null;
+
+    document.getElementById(
+        "remoteVideo"
+    ).srcObject = null;
+
+    document.getElementById(
+        "videoCallArea"
+    ).style.display = "none";
+
+    document.getElementById(
+        "videoMessage"
+    ).innerText =
+        "Video consultation ended.";
+}
+
+let doctorLocalStream = null;
+
+async function joinDoctorCall() {
+
+    const doctorId =
+        document.getElementById("doctorPortalId").value;
+
+    const message =
+        document.getElementById("doctorVideoMessage");
+
+    const videoArea =
+        document.getElementById("doctorVideoArea");
+
+    const localVideo =
+        document.getElementById("doctorLocalVideo");
+
+    if (!doctorId) {
+
+        message.innerText =
+            "Please enter a Doctor ID.";
+
+        return;
+    }
+
+    message.innerText =
+        "Starting doctor camera...";
+
+    try {
+
+        doctorLocalStream =
+            await navigator.mediaDevices.getUserMedia({
+                video: true,
+                audio: true
+            });
+
+        localVideo.srcObject =
+            doctorLocalStream;
+
+        videoArea.style.display =
+            "block";
+
+        message.innerText =
+            "Doctor camera started. Waiting for patient...";
+
+    } catch (error) {
+
+        console.error(error);
+
+        message.innerText =
+            "Camera or microphone permission was denied.";
+
+    }
+}
+
+
+function endDoctorCall() {
+
+    if (doctorLocalStream) {
+
+        doctorLocalStream
+            .getTracks()
+            .forEach(function(track) {
+                track.stop();
+            });
+
+        doctorLocalStream = null;
+    }
+
+    document.getElementById(
+        "doctorLocalVideo"
+    ).srcObject = null;
+
+    document.getElementById(
+        "doctorRemoteVideo"
+    ).srcObject = null;
+
+    document.getElementById(
+        "doctorVideoArea"
+    ).style.display = "none";
+
+    document.getElementById(
+        "doctorVideoMessage"
+    ).innerText =
+        "Doctor video consultation ended.";
+}
+
+</script>
+
+
+</body>
+
+</html>
